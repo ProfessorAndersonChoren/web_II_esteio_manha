@@ -9,3 +9,4 @@ Route::get('/', [UserController::class,'index'])->name('user.login');
 // Rotas autenticadas
 Route::get('/book', [BookController::class, 'index'])->name('book.index');
 Route::get('/book/create',[BookController::class,'create'])->name('book.create');
+Route::post('/book/create',[BookController::class,'store'])->name('book.store');

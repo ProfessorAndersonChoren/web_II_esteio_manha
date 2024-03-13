@@ -2,7 +2,8 @@
 
 @section('main-content')
     <h1 class="text-6xl text-center text-red-950">Cadastrar novo livro</h1>
-    <form action="#" method="post" class="flex flex-col w-full">
+    <form action="{{ route('book.store') }}" method="post" class="flex flex-col w-full">
+        @csrf
         <label for="isbn" class="custom-label">ISBN do livro:</label>
         <input type="text" id="isbn" name="isbn" class="mb-6 custom-input" required minlength="13" maxlength="17">
         <label for="title" class="custom-label">Nome do livro:</label>
