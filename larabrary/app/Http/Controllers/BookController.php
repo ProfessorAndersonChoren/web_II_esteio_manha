@@ -43,7 +43,7 @@ class BookController extends Controller
     public function edit(int $id)
     {
         $book = Book::findOrFail($id);
-        return view('auth.edit-book', compact('id'));
+        return view('auth.edit-book', compact('book'));
     }
 
     public function update(Request $request, int $id)
@@ -66,5 +66,12 @@ class BookController extends Controller
         $book->publisher = $request->publisher;
         $book->pages = $request->pages;
         $book->save();
+        return redirect()->route('book.index');
+    }
+
+    public function destroy(int $id)
+    {
+        Book::destroy($id);
+        return redirect()->route('book.index');
     }
 }
